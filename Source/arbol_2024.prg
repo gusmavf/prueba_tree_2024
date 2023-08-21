@@ -4,17 +4,16 @@
 // Hora: 23:47
 // Proyecto en xMate: tree_2024
 // Lista de funciones:
-// Ultima actualizacion :>: 08/20/2023 23:48
+// Ultima actualizacion :>: 08/21/2023 07:51
 // Historial:
 //            >>:
-//            08/20/23
+//            08/20/23-08/21/23
 //////////////////////////////////////////////////////////////////////////////
 
 #include "fivewin.ch"
 #include "debug.ch"
 
 //------------------------------------------------------------------------------
-
 
 FUNCTION main()
    RETURN (NIL)
