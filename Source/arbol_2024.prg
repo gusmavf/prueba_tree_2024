@@ -4,10 +4,10 @@
 // Hora: 23:47
 // Proyecto en xMate: tree_2024
 // Lista de funciones:
-// Ultima actualizacion :>: 08/21/2023 21:53
+// Ultima actualizacion :>: 08/23/2023 19:08
 // Historial:
 //            >>:
-//            08/20/23-08/21/23
+//            08/20/23-08/23/23
 //////////////////////////////////////////////////////////////////////////////
 
 #include "fivewin.ch"      // utilizo la version 21.02
@@ -30,7 +30,8 @@ METHOD insertarRama( oTree, oRama, vGets ) CLASS Tapp
    LOCAL oABM := TABM():new()
    LOCAL oItem
 
-   oItem := oABM:insertarRama( IIf( oRama == NIL, oTree, oRama ), vGets )
+//   oItem := oABM:insertarRama( IIf( oRama == NIL, oTree, oRama ), vGets )
+   oItem := oABM:insertarRama( oTree, oRama, vGets )
 
    oTree:refresh()
    oTree:expandAll()
@@ -72,10 +73,6 @@ METHOD menuPopup( oTree, oRama, oGets, vGets, nRow, nCol ) CLASS TApp
 
 METHOD seleccionarRama( oTree, nRow, nCol, nKeyFlags ) CLASS TApp
    LOCAL oRama := oTree:hitTest( nRow, nCol )
-
-   IF oRama != NIL
-      VIEW oRama:cprompt
-   ENDIF
 
    RETURN ( oRama )
 
@@ -122,7 +119,8 @@ METHOD pantalla() CLASS TApp
 
    //----------( )----------
 
-   oTree:blclicked := { | nRow, nCol, nKeyFlags | oRama:= ::seleccionarRama( oTree, nRow, nCol, nKeyFlags ) }
+   oTree:bLClicked := { | nRow, nCol, nKeyFlags | oRama:= ::seleccionarRama( oTree, nRow, nCol, nKeyFlags ) }
+   oTree:bRClicked := { | nRow, nCol, nKeyFlags | ::menuPopup( oTree, oRama, oGets, vGets, nRow, nCol ) }
 
    //----------( )----------
 
@@ -161,6 +159,13 @@ FUNCTION main()
 
 //------------------------------------------------------------------------------
 
+function BuscaPos( a, nVal )
+
+   local nResult
+
+   AScan( ASort( AClone( a ) ), { | n, nPos | If( nVal < n, nResult := AScan( a, n ) - 1,), n > nVal } )
+
+return nResult
 
 
 

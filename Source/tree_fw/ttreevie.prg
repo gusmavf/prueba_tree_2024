@@ -559,6 +559,7 @@ METHOD SwapUp() CLASS TTreeView
 
    ::GoPrev()
    ::GoPrev()
+
    oSelItem:End()
    ::Select( ::InsertAfter( ::GetSelected(), cPrompt ) )
 
