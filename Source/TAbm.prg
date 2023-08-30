@@ -4,7 +4,7 @@
 // Hora: 08:09
 // Proyecto en xMate: tree_2024
 // Lista de funciones:
-// Ultima actualizacion :>: 08/30/2023 12:08
+// Ultima actualizacion :>: 08/30/2023 12:12
 // Historial:
 //            >>:
 //            08/21/23-08/30/23
@@ -69,7 +69,7 @@ METHOD swap( oItemArriba, oItemAPasar, oTree, vGets, nHitemOriginal ) CLASS TAbm
    ::extraerItems( oItemArriba:aItems, aItemsExtraidos )
 
    oItem := oTree:scan( { | o | o:hitem == oItemAPasar:hitem } )
-   oItem := oTree:insertAfter( oItem, oItemArriba:cprompt + " cambio primero" )
+   oItem := oTree:insertAfter( oItem, oItemArriba:cprompt )
    oItem:cargo := { ;
                     "fecha"         => oItemArriba:cargo[ "fecha" ], ;
                     "nombre"        => oItemArriba:cargo[ "nombre" ], ;
@@ -89,7 +89,7 @@ METHOD swap( oItemArriba, oItemAPasar, oTree, vGets, nHitemOriginal ) CLASS TAbm
       nHitemAnterior := oElemento:hitem
 
       oItem := oTree:scan( { | o | o:hitem == oElemento:cargo[ "hitem_parent" ] } )
-      oItem := oItem:ADD( oElemento:cPrompt + " cambio en for" )
+      oItem := oItem:ADD( oElemento:cPrompt )
       oItem:cargo := { ;
                        "fecha"         => oElemento:cargo[ "fecha" ], ;
                        "nombre"        => oElemento:cargo[ "nombre" ], ;
@@ -120,7 +120,7 @@ METHOD insertarRama( oTree, oRama, vGets ) CLASS TAbm
 
    IF  ( Len( oTree:aItems ) == 0 )
 
-      oItem := oTree:ADD( cPrompt + " len == 0" )
+      oItem := oTree:ADD( cPrompt )
       oItem:cargo := { ;
                        "fecha" => vGets[ 1 ], ;
                        "nombre" => vGets[ 2 ], ;
@@ -131,15 +131,13 @@ METHOD insertarRama( oTree, oRama, vGets ) CLASS TAbm
    ELSE
       oRama := IIf( oRama == NIL, oTree, oRama )
 
-      FWDBG "no es cero nibien arranca", oRama:aItems, oTree, oRama
-
       nHitem := ::buscaPos( oRama:aItems, CToD( vGets[ 1 ] ), oTree )
 
       IF ( nHitem > 0 )
          IF nHitem == 1
             oItem := oTree:scan( { | o | o:hitem == oRama:aItems[ 1 ]:hitem } )
             oItemArriba := oItem
-            oItem := oTree:insertAfter( oItem, cPrompt + " nHitem == 1" )
+            oItem := oTree:insertAfter( oItem, cPrompt)
             oItem:cargo := { ;
                              "fecha" => vGets[ 1 ], ;
                              "nombre" => vGets[ 2 ], ;
@@ -152,7 +150,7 @@ METHOD insertarRama( oTree, oRama, vGets ) CLASS TAbm
             oItemArriba:END()
          ELSE
             oItem := oTree:scan( { | o | o:hitem == nHitem } )
-            oItem := oTree:insertAfter( oItem, cPrompt + " nHitem > 1" )
+            oItem := oTree:insertAfter( oItem, cPrompt)
             oItem:cargo := { ;
                              "fecha" => vGets[ 1 ], ;
                              "nombre" => vGets[ 2 ], ;

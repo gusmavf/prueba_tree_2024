@@ -25,14 +25,15 @@ Dbf=
 
 [Editor]
 X:\workshop\tree_2024\Source\TAbm.prg=1,N,Y
+X:\workshop\tree_2024\Source\arbol_2024.prg=2,N,N
 
 [Files]
-%HOME%\Source\arbol_2024.prg=1,.F.,13,76,
+%HOME%\Source\arbol_2024.prg=1,.F.,36,1,
 %HOME%\Source\tree_fw\treeview.c=2,.F.,215,1,
 %HOME%\Source\tree_fw\ttreevie.prg=3,.F.,453,4,
 %HOME%\Source\tree_fw\tvvitem.prg=4,.F.,0,0,
 %HOME%\Source\extra\debug.prg=5,.F.,0,0,
-%HOME%\Source\TAbm.prg=6,.F.,90,70,
+%HOME%\Source\TAbm.prg=6,.F.,184,4,
 %HOME%\Resource\recursos.res=7,.F.,0,0,
 %HOME%\go.bat=8,.F.,3,1,
 X:\harb\fwh\lib\Fiveh.lib=9,.T.,0,0,
